@@ -145,11 +145,12 @@ class StepMoverBarView(ctx : Context) : View(ctx) {
     }
 
     data class StepMoveBar(var i : Int) {
-        private var curr : SMBNode = SMBNode(0)
+        private val root : SMBNode = SMBNode(0)
+        private var curr : SMBNode = root
         private var dir : Int = 1
 
         fun draw(canvas : Canvas, paint : Paint) {
-            curr.draw(canvas, paint)
+            root.draw(canvas, paint)
         }
 
         fun update(cb : (Int, Float) -> Unit) {
