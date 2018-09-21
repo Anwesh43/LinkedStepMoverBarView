@@ -19,7 +19,7 @@ fun Canvas.drawSMBNode(i : Int, scale : Float, paint : Paint) {
     paint.color = Color.parseColor("#4527A0")
     val w : Float = width.toFloat()
     val h : Float = height.toFloat()
-    val gap : Float = w / (nodes + 1)
+    val gap : Float = h / (nodes + 1)
     val hSize : Float = gap / 3
     save()
     translate((w/2), gap + i * gap)
