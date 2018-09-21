@@ -4,6 +4,7 @@ package com.anwesh.uiprojects.stepmovebarview
  * Created by anweshmishra on 21/09/18.
  */
 
+import android.app.Activity
 import android.view.View
 import android.view.MotionEvent
 import android.graphics.Canvas
@@ -185,6 +186,14 @@ class StepMoverBarView(ctx : Context) : View(ctx) {
             smb.startUpdating {
                 animator.start()
             }
+        }
+    }
+
+    companion object {
+        fun create(activity : Activity) : StepMoverBarView {
+            val view : StepMoverBarView = StepMoverBarView(activity)
+            activity.setContentView(view)
+            return view
         }
     }
  }
