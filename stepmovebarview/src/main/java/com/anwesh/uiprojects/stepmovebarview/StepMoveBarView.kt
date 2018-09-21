@@ -163,4 +163,27 @@ class StepMoverBarView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : StepMoverBarView) {
+
+        private val smb : StepMoveBar = StepMoveBar(0)
+
+        private val animator : Animator = Animator(view)
+
+        fun render(canvas : Canvas, paint : Paint) {
+            canvas.drawColor(Color.parseColor("#BDBDBD"))
+            smb.draw(canvas, paint)
+            animator.animate {
+                smb.update {i, scl ->
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            smb.startUpdating {
+                animator.start()
+            }
+        }
+    }
  }
